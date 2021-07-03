@@ -4,6 +4,7 @@ import com.github.profiiqus.utils.Formatter;
 import com.google.common.base.Strings;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
 
 import java.util.*;
 
@@ -20,7 +21,7 @@ public class Message {
         this.lines = lines;
     }
 
-    public void setPlaceholders(HashMap<String, String> placeholders) {
+    public Message setPlaceholders(HashMap<String, String> placeholders) {
         for(int i = 0; i < lines.size()-1; i++) {
             String line = lines.get(i);
             for(Map.Entry<String, String> entry: placeholders.entrySet()) {
@@ -28,12 +29,14 @@ public class Message {
             }
             lines.set(i, line);
         }
+        return this;
     }
 
-    public void colorize() {
+    public Message colorize() {
         for(int i = 0; i < lines.size()-1; i++) {
             lines.set(i, Formatter.colorize(lines.get(i)));
         }
+        return this;
     }
 
     public static Message fromPath(FileConfiguration config, String path) throws NullPointerException, InvalidConfigurationException {
@@ -54,5 +57,11 @@ public class Message {
         }
 
         throw new InvalidConfigurationException("Invalid message type on: " + path);
+    }
+
+    public void send(Player player) {
+        for(String line: this.lines) {
+            player.sendMessage(line);
+        }
     }
 }
