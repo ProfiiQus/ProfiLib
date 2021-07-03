@@ -3,6 +3,7 @@ package com.github.profiiqus;
 import com.github.profiiqus.utils.Formatter;
 import com.google.common.base.Strings;
 import org.bukkit.ChatColor;
+import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
@@ -105,11 +106,11 @@ public class Message {
 
     /**
      * Sends the message to a player.
-     * @param player The player to send the message to.
+     * @param sender The player (or console) to send the message to.
      */
-    public void send(Player player) {
+    public void send(CommandSender sender) {
         for(String line: this.lines) {
-            player.sendMessage(line);
+            sender.sendMessage(line);
         }
     }
 }
