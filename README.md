@@ -1,4 +1,4 @@
-# ProfiLib ![Jitpack](https://jitpack.io/v/ProfiiQus/ProfiLib.svg)
+# ProfiLib ![Jitpack](https://jitpack.io/v/ProfiiQus/ProfiLib.svg) ![Spigot](https://img.shields.io/badge/Spigot-1.12%20--%201.17-orange)
 
 ProfiLib is a simple library being created for easier development of Minecraft - Spigot and Bungee plugins. Currently, it houses only a simple messaging and coloring library.
 
