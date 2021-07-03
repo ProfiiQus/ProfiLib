@@ -1,1 +1,1 @@
-# ProfiLib
+# ProfiLib ![Jitpack](https://jitpack.io/v/ProfiiQus/ProfiLib.svg)
