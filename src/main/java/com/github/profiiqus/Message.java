@@ -113,4 +113,17 @@ public class Message {
             sender.sendMessage(line);
         }
     }
+
+    /**
+     * Sends a message that is either colorized or stripped, dependant on
+     * whether the sender is console or a player
+     * @param sender Sender to send the message
+     */
+    public void sendAutoColors(CommandSender sender) {
+        if(sender instanceof Player) {
+            this.colorize().send(sender);
+        } else {
+            this.colorize().stripColors().send(sender);
+        }
+    }
 }
